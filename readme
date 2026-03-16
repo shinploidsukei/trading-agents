@@ -1,0 +1,11 @@
+## HOW TO RUN THIS AGENT ##
+Rebuild the containers
+    docker compose up --build -d
+
+Verify trades are being inserted
+    docker compose logs -f trading_agent
+
+Check the database
+    docker exec -it postgres psql -U trader  -d postgres
+    \c trading
+    SELECT * FROM trades ORDER BY timestamp DESC LIMIT 10;
